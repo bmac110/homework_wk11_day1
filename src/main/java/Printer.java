@@ -1,23 +1,25 @@
 public class Printer {
 
-    private int sheets;
-//    private int pages;
-//    private int copies;
+    public int sheets;
+    public int tonerVolume;
 
-    public Printer(int sheets){
+    public Printer(int sheets, int tonerVolume){
         this.sheets = sheets;
-//        this.pages = pages;
-//        this.copies = copies;
+        this.tonerVolume = tonerVolume;
+    }
+
+    public int getSheets(){
+        return sheets;
     }
 
     public int numberOfSheets(){return sheets;}
 
-    public int print(int copies, int pages){
-        int totalPages = 0;
-        if(sheets >= 1){
-            totalPages = copies * pages;
+    public void print(int copies, int pages){
+        int totalPages = copies * pages;
+        if(totalPages <= sheets){
+            sheets -= totalPages;
+            tonerVolume -= totalPages;
         }
-        return sheets -= totalPages;
-
     }
+
 }
