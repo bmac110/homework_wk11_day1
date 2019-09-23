@@ -16,4 +16,9 @@ public class PrinterTest {
     public void checkNumberOfSheets(){
         assertEquals(30, printer.numberOfSheets());
     }
+
+    @Test
+    public void checkPrintWorks(){
+        assertEquals(0, printer.print(10, 3));
+    }
 }
